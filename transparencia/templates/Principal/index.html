@@ -1,0 +1,79 @@
+{% extends "Base/base.html" %}
+{% load staticfiles %}
+
+{% block titulo %}
+	Inicio
+{% endblock titulo %}
+	
+{% block contenido %}
+<br>
+<div class="white-box" >
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-4">
+			<img class="img-circle" src="{% static "imagenes/read.jpg" %}" alt="Generic placeholder image" width="140" height="140">
+			<h2>Encuentra documentos de las diferentes instituciones gubernamentales</h2>
+			<p>Documentos legislativos, Reformas constitucionales, Rendicion de cuentas de las instituciones gubernamentales, leyes y otros documentos sobre las diferentes instituciones gubernamentales del pais para que puedas consultarlos en cualquier momentoy en cualquier lugar.</p>
+			<p><a class="btn btn-info" href="#" role="button">View details &raquo;</a></p>
+		</div><!-- /.col-lg-4 -->
+		<div class="col-lg-4">
+			<img class="img-circle" src="{% static "imagenes/consulta.jpg" %}" alt="Generic placeholder image" width="140" height="140">
+			<h2>Realiza tus consultas o dudas a los funcionarios</h2>
+			<p>¿Quieres saber sobre algun proyecto o licitacion que se esta realizando actualmente? Realiza tu consulta a los funcionarios publicos designados al proyecto para aclarar tus dudas o inquietudes, o realizales una sugerencia al trabajo que estan realizando actualmente. Participar en la toma de deciciones ahora es mas facil y fomenta un proceso mas transparente de democracia en el pais.</p>
+			<p><a class="btn btn-info" href="#" role="button">View details &raquo;</a></p>
+		</div><!-- /.col-lg-4 -->
+		<div class="col-lg-4">
+			<img class="img-circle" src="{% static "imagenes/rank.jpeg" %}" alt="Generic placeholder image" width="140" height="140">
+			<h2>Puntua los documentos que encuentres!!</h2>
+			<p>Si te encuentras a favor de una ley, documento constitucional o algun otro documento que rinda la institucion; puedes calificarlo para que manifiestes asi tu aprobacion al trabajo que realizan las diferentes instituciones gubernamentales del pais.</p>
+			<p><a class="btn btn-info" href="#" role="button">View details &raquo;</a></p>
+		</div><!-- /.col-lg-4 -->
+	</div><!-- /.row -->
+</div>
+
+<div class="white-box" >
+
+	<hr class="featurette-divider">
+
+	<div class="row featurette">
+		<div class="col-md-7">
+			<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+			<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+		</div>
+		<div class="col-md-5">
+			<img class="featurette-image img-responsive center-block" src="{% static "imagenes/lupa.jpg" %}" alt="Generic placeholder image">
+		</div>
+	</div>
+
+	<hr class="featurette-divider">
+
+	<div class="row featurette">
+		<div class="col-md-7 col-md-push-5">
+			<h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+			<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+		</div>
+		<div class="col-md-5 col-md-pull-7">
+			<img class="featurette-image img-responsive center-block" src="{% static "imagenes/lupa.jpg" %}" alt="Generic placeholder image">
+		</div>
+	</div>
+
+	<hr class="featurette-divider">
+
+	<div class="row featurette">
+		<div class="col-md-7">
+			<h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+			<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+		</div>
+		<div class="col-md-5">
+			<img class="featurette-image img-responsive center-block" src="{% static "imagenes/lupa.jpg" %}" alt="Generic placeholder image">
+		</div>
+	</div>
+
+	<hr class="featurette-divider">
+</div>
+	
+</div>
+
+
+	
+{% endblock contenido %}
