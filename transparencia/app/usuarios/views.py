@@ -17,3 +17,6 @@ def registro(request):
 	else:
 		form = SignUpForm()
 	return render(request,'Usuarios/registro.html',{'form':form})
+
+def perfil(request):
+	return render(request, 'Usuarios/perfil.html')
