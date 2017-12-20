@@ -5,4 +5,5 @@ from app.documentos import views
 app_name = 'archivos'
 urlpatterns = [
    path('udocs/', views.cargarArchivos, name='cargardocs'),
+   path('puntuar/', views.puntuarArchivos, name='puntuar'),
 ]

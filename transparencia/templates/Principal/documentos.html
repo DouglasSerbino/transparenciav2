@@ -1,9 +1,98 @@
 {% extends "Base/base.html" %}
+{% load staticfiles %}
 
 {% block titulo %}
 	Documentos
 {% endblock titulo %}
 
 {% block contenido %}
-	
+<div class="white-box">
+	<div class="row">
+	{% if archivo %}
+		{% for documento in archivo %}
+		<div class="col-md-4 mb-4">
+			<div class="card h-100">
+				<div class="card-body">
+					<h2 class="card-title">{{ documento.nombre_archivo }}</h2>
+					<ul class="col-in">
+						<li class="center-block">
+							<a href="{% static "/" %}{{ documento.archivo }}">
+								<span class="circle circle-md bg-success">
+									<i class="ti-file"></i>
+								</span>
+							</a>
+						</li>
+
+					</ul>
+					<p class="card-text">{{ documento.descripcion }}</p>
+				</div>
+				<div class="card-footer">
+					<button class="btn btn-info btn-sm btn-rounded" onclick="Like({{ documento.id }})"><span id="like">{{ documento.like }} </span>Like</button>
+					<button class="btn btn-warning btn-sm btn-rounded" onclick="Dislike({{ documento.id }})"><span id="dislike">{{ documento.dislike }}</span> Dislike</button>
+				</div>
+				
+			</div>
+		</div>
+		{% endfor %}
+	{% else %}
+	<h1>No hay documentos para mostrar</h1>
+	{% endif %}	
+	</div>
+</div>
 {% endblock contenido %}
+
+{% block footer_js %}
+	{{ block.super }}
+
+	<script type="text/javascript">
+		function Like (likes) 
+		{
+		  $.ajax({
+		  	url: '{% url 'archivos:puntuar' %}',
+		  	type: 'POST',
+		  	dataType: 'json',
+		  	data: {
+		  		likes: likes,
+		  		csrfmiddlewaretoken: '{{ csrf_token }}'
+		  	},
+		  })
+		  .done(function(info) {
+		  	//console.log("success");
+		  	$('#like').html(info[0].fields.like);
+		  })
+		  .fail(function() {
+		  	console.log("error");
+		  })
+		  .always(function() {
+		  	console.log("complete");
+		  });
+		  
+		}
+
+		function Dislike (nolike) 
+		{
+			$.ajax({
+		  	url: '{% url 'archivos:puntuar' %}',
+		  	type: 'POST',
+		  	dataType: 'json',
+		  	data: {
+		  		nolike: nolike,
+		  		csrfmiddlewaretoken: '{{ csrf_token }}'
+		  	},
+		  })
+		  .done(function(info) {
+		  	//console.log("success");
+		  	$('#dislike').html(info[0].fields.dislike);
+
+		  })
+		  .fail(function() {
+		  	console.log("error");
+		  })
+		  .always(function() {
+		  	console.log("complete");
+		  });
+			 
+		}
+	</script>
+
+{% endblock footer_js %}
